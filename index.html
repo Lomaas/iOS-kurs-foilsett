@@ -5,50 +5,148 @@
     <meta name="viewport" content="width=1024" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <title>impress.js | presentation tool based on the power of CSS3 transforms and transitions in modern browsers | by Bartek Szopka @bartaz</title>
-    
-    <meta name="description" content="impress.js is a presentation tool based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com." />
-    <meta name="author" content="Bartek Szopka" />
 
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
 
-    <link href="css/impress-demo.css" rel="stylesheet" />
-    
+    <link href="css/my.css" rel="stylesheet" />
     <link rel="shortcut icon" href="favicon.png" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 </head>
 
-<body class="impress-not-supported">
+<body>
 
-<div class="fallback-message">
-  <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
-  <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
-</div>
+  <div id="impress">
+      <header class="step" class="slides" data-x="0" data-y="-400">
+        <h1>Swift kurs</h1>
+      </header>
 
-<div id="impress">
-    <header class="step" class="step" data-x="0" data-y="0">
-      <h1>Andi's Presentation</h1>
-    </header>
+      <section class="step" class="slides" data-x="0" data-y="400">
+        <h1>Agenda</h1>
 
-    <section class="step" class="step" data-x="0" data-y="0">
-        <p>Here's something cool on slide 2</p>
-  </section>
+        <ul> 
+          <li> Om bekk </li>
+          <li> Swift</li>
+          <li> Xcode </li>
+          <li> Koding og presentasjon </li>
+          <li> Oppsummering </li>
+        </ul>
+      </section>
+  
+      <section class="step" class="slides" data-x="0" data-y="1200">
+          <h1> Om bekk </h1>
+          <p>Konsulentfirma </p>
+          <p>Hovedkontor i Oslo </p>
+          <p>IT, design og økonomi </p>
 
-    <section class="step" class="step" data-x="0" data-y="0">
-        <p>Here's something also cool on slide 3</p>
-  </section>
+          <!--
+            What to say also:
 
-    <footer>
-    <p>Visit me at <a href="http://www.andismith.com" target="_blank">AndiSmith.com</a></p>
+              - Også i Trondheim
+              - Presentere oss selv 
+              - Nevne hvor vi jobber slik at studenter får innblikk i hverdagen
+          -->
+      </section>
 
-</div>
+      <section class="step" class="slides" data-x="0" data-y="2000">
+          <h1>Swift</h1>
+      </section>
 
-<script>
-if ("ontouchstart" in document.documentElement) { 
-    document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
-}
-</script>
+      <section class="step" class="slides" data-x="0" data-y="2600">
+        <ul> 
+          <li> Tar over for Objective-C </li>
+          <li> For iOS og OSX</li>
+          <li> Lavere terkel på å komme i gang </li>
+          <li> OOP, funksjonelt, imperativ </li>
+          <li> Forbedres stadig </li>
+        </ul>
+      </section>
 
-<script src="js/impress.js"></script>
-<script>impress().init();</script>
+      <section class="step" class="slides" data-x="0" data-y="3400">
+        <h1>Syntax</h1>
+        <p>
+        <pre>
+          <code>println("hello, world")</code>
+        </pre>
+      </p>
+      </section>
+
+
+      <section class="step" class="slides" data-x="0" data-y="4200">
+        <h1>Syntax</h1>
+
+        <p>
+          <pre>
+            <code class="Swift">var students = 100</code>
+            <code class="Swift">let shortName = "UiT"</code>
+          </pre>
+        </p>
+        <!--
+            What to say:
+
+              - let er konstant, var er for variable verdier
+              - Type inference - kompiler finner ut om det er string eller int. Trenger 
+                ikke å spesifiseres
+              - Kan spesifisere type hvis ønsket
+          -->
+
+      </section>
+
+      <section class="step" class="slides" data-x="0" data-y="5000">
+        <h1>Syntax</h1>
+
+        <p>
+          <pre>
+            <code style="font-size: 30px" class="Swift">var jobber = ["CSS-guru", "Designer", "Backend-utvikler"]</code>
+            <code style="font-size: 30px" class="Swift"> var fakultet = ["Informatikk" : 50, "Lege" : 100, 
+              "Biokjemi" : "Brent ned"]</code>
+          </pre>
+        </p>
+
+          <!--
+            What to say:
+
+              - array defineres med brackets. Kan inneholde ulike typer; strings, heltall, array, dictionary
+              - Samme med dictonary. Her ser vi både heltall og string
+          -->
+      </section>
+
+      <section class="step" class="slides" data-x="0" data-y="5800">
+        <h1>Syntax</h1>
+        <p>
+          <pre>
+            <code style="font-size: 30px" class="Swift">var jobber = ["CSS-guru", "Designer", 
+              "Backend-utvikler"]
+            </code>
+          </pre>
+          <pre>
+            <code style="font-size: 30px" class="Swift pretty">
+              for jobb in jobber {
+                println("\(jobb)")
+              }
+            <code>
+          </pre>
+        </p>
+
+          <!--
+            What to say:
+
+              - array defineres med brackets. Kan inneholde ulike typer; strings, heltall, array, dictionary
+              - Samme med dictonary. Her ser vi både heltall og string
+          -->
+      </section>
+  </div>
+
+  <script>
+    if ("ontouchstart" in document.documentElement) { 
+        document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+    }
+  </script>
+
+  <script src="js/impress.js"></script>
+  <script>impress().init();</script>
 </body>
 </html>
