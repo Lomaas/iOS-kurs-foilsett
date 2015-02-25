@@ -76,12 +76,13 @@
 
 
       <section class="step" class="slides" data-x="0" data-y="4200">
-        <h1>Syntax</h1>
+        <h2>Variables, Constants</h2>
 
         <p>
           <pre>
-            <code class="Swift">var students = 100</code>
-            <code class="Swift">let shortName = "UiT"</code>
+            <code style="font-size: 30px" class="Swift">var students = 100</code>
+            <code style="font-size: 30px" class="Swift">let shortName = "UiT"</code>
+            <code style="font-size: 30px" class="Swift">let universities = "UiT", "UiB", "NTNU"</code>
           </pre>
         </p>
         <!--
@@ -96,12 +97,13 @@
       </section>
 
       <section class="step" class="slides" data-x="0" data-y="5000">
-        <h1>Syntax</h1>
+        <h2>Arrays</h2>
 
         <p>
           <pre>
-            <code style="font-size: 30px" class="Swift">var jobber = ["CSS-guru", "Designer", "Backend-utvikler"]</code>
-            <code style="font-size: 30px" class="Swift"> var fakultet = ["Informatikk" : 50, "Lege" : 100, 
+            <code style="font-size: 25px" class="Swift">var jobber = ["CSS-guru", "Designer", "Backend"]</code>
+            <code style="font-size: 25px" class="Swift">var jobber: String = ["CSS-guru", "Designer"]</code>
+            <code style="font-size: 25px" class="Swift"> var fakultet = ["Informatikk" : 50, "Lege" : 100, 
               "Biokjemi" : "Brent ned"]</code>
           </pre>
         </p>
@@ -110,22 +112,25 @@
             What to say:
 
               - array defineres med brackets. Kan inneholde ulike typer; strings, heltall, array, dictionary
+              - Kan spesifisere type
               - Samme med dictonary. Her ser vi både heltall og string
           -->
       </section>
 
       <section class="step" class="slides" data-x="0" data-y="5800">
-        <h1>Syntax</h1>
+        <h2>for-loops</h2>
         <p>
           <pre>
-            <code style="font-size: 30px" class="Swift">var jobber = ["CSS-guru", "Designer", 
-              "Backend-utvikler"]
+            <code style="font-size: 30px" class="Swift">
+              var jobber = ["CSS-guru", "Designer", 
+                "Backend-utvikler"]
             </code>
-          </pre>
-          <pre>
-            <code style="font-size: 30px" class="Swift pretty">
+            <code style="font-size: 30px" class="Swift block">
               for jobb in jobber {
                 println("\(jobb)")
+              }
+              for number in 0..100 {
+                println("\(number)")
               }
             <code>
           </pre>
@@ -134,8 +139,101 @@
           <!--
             What to say:
 
-              - array defineres med brackets. Kan inneholde ulike typer; strings, heltall, array, dictionary
-              - Samme med dictonary. Her ser vi både heltall og string
+              - Itere gjennom løkker -> skrives som en setning. Veldig forenkla syntax fra tidligere
+              - Counters
+          -->
+      </section>
+      <section class="step" class="slides" data-x="0" data-y="6400">
+        <h2>Functions</h2>
+        <p>
+          <pre>
+            <code style="font-size: 30px" class="Swift block">
+              func addTwo(a: Int) -> Int {
+                return a + 2
+              }
+            <code>
+          </pre>
+        </p>
+
+          <!--
+            What to say:
+
+              - Funksjonelle paradigme i vinden
+              - Små korte funksjoner som gjør en ting og kan kombineres hvor resultatet av den ene 
+                bygger på den andre
+          -->
+      </section>
+
+      <section class="step" class="slides" data-x="0" data-y="7200">
+        <h2>Closures</h2>
+        <p>
+          <pre>
+            <code style="font-size: 30px" class="Swift block">
+              let names = ["Chris", "Alex", "Ewa", "Barry", "Daniella"]
+              func backwards(s1: String, s2: String) -> Bool {
+                return s1 > s2
+              }
+              var reversed = sorted(names, backwards)
+              // reversed is equal to ["Ewa", "Daniella", "Chris", "Barry", "Alex"]
+            <code>
+          </pre>
+        </p>
+
+          <!--
+            What to say:
+
+              - Funksjonelle paradigme i vinden
+              - Små korte funksjoner som gjør en ting og kan kombineres hvor resultatet av den ene 
+                bygger på den andre
+              - Tidligere het det blocks, ser litt ut som javascript
+              - Hvis s1 er større enn s2 returnerer funksjonen true. DVS s1 skal være før s2
+              - Greather than ">" for strings -> This means that the letter "B" is “greater than” the letter "A"
+          -->
+      </section>
+
+      <section class="step" class="slides" data-x="0" data-y="8000">
+        <h2>Classes</h2>
+        <p>
+          <pre>
+            <code style="font-size: 30px" class="Swift block">
+           class VideoMode {
+                  var resolution = Resolution()
+                  var interlaced = false
+                  var frameRate = 0.0
+                  var name: String?
+              }
+            <code>
+          </pre>
+        </p>
+
+          <!--
+            What to say:
+
+              - Slipper unna interface filer slik som i c og obj-c. Automatisk tilgjengelig i andre filer
+              - Automatic Reference Counting - frigjør objekter fra minne når ingen peker lengere på de. Kan ha weak reference
+              - Kopierer ved assignment på structs. Faktisk minne referanse ved objekter. Passed by value, passed by reference
+          
+              - Slipper unna interface filer slik som i c og obj-c. Automatisk tilgjengelig i andre filer
+              - 
+          -->
+      </section>
+
+      <section class="step" class="slides" data-x="0" data-y="8800">
+        <h2>iOS</h2>
+        <p>
+          <ul>
+            <li>iPad, iPhone, and iPod</li>
+            <li>Cocoa Touch</li>
+            <li></li>
+          </ul>
+        </p>
+
+          <!--
+            What to say:
+
+              - Kjøres på ipad, iphone...
+              - Cocoa Touch
+              - Bygd rundt rammeverk som du drar inn for å få ulike tjenster. Push, Message, UIkit, Adresss book, event kit
           -->
       </section>
   </div>
