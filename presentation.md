@@ -20,7 +20,10 @@
 - Hovedkontor i Oslo
 - IT, design og økonomi
 
-
+^
+- Også i Trondheim
+- Presentere oss selv 
+- Nevne hvor vi jobber slik at studenter får innblikk i hverdagen
 
 ---
 
@@ -38,16 +41,53 @@
 
 ```swift
 println("Hello, world!")
+
+// hello world
 ```
 ---
 
 ## Variabler og konstanter
 
-```swift	
-var students = 100
-let shortName = "UiT"
-let universities = "UiT", "UiB", "NTNU"
+```swift
+let shortName: String = "UiT"
+var students: Int = 100
+
+students = 150
+shortName = "UiB" 	// Compile error
+
 ```
+
+^
+- let er konstant, var er for variable verdier
+- Type inference - kompiler finner ut om det er string eller int. Trenger 
+ikke å spesifiseres
+- Kan spesifisere type hvis ønsket
+
+---
+
+## Type inference
+
+```swift
+let shortName = "UiT"
+var students = 100
+
+let  = "UiT", "UiB", "NTNU"
+```
+---
+
+## Arrays
+
+```swift
+var jobber = ["CSS-guru", "Designer", "Backend-utvikler"]
+var jobber: String = ["CSS-guru", "Designer"]
+var fakultet = ["Informatikk" : 50, "Lege" : 100,  "Biokjemi" : "Brent ned"]
+```
+
+^
+- array defineres med brackets. Kan inneholde ulike typer; strings, heltall, array, dictionary
+- Kan spesifisere type
+- Samme med dictonary. Her ser vi både heltall og string
+
 
 ---
 
@@ -65,6 +105,10 @@ for number in 0..100 {
 }
 ```
 
+^
+- Itere gjennom løkker -> skrives som en setning. Veldig forenkla syntax fra tidligere
+- Teller opp til 100, printer ut
+
 ---
 
 ## Funksjoner
@@ -75,6 +119,10 @@ func addTwo(a: Int) -> Int {
 
 let number = addTwo(5)  // 7
 ```
+^
+- Funksjonelle paradigme i vinden
+- Små korte funksjoner som gjør en ting og kan kombineres hvor resultatet av den ene 
+bygger på den andre
 
 ---
 
@@ -92,6 +140,13 @@ var reversed = sorted(names, backwards)
 // reversed is equal to ["Ewa", "Daniella", "Chris", "Barry", "Alex"]
 ```
 
+^- Funksjonelle paradigme i vinden
+- Små korte funksjoner som gjør en ting og kan kombineres hvor resultatet av den ene 
+bygger på den andre
+- Tidligere het det blocks, ser litt ut som javascript
+- Hvis s1 er større enn s2 returnerer funksjonen true. DVS s1 skal være før s2
+- Greather than ">" for strings -> This means that the letter "B" is “greater than” the letter "A"
+
 ---
 
 ## Klasser 
@@ -107,10 +162,41 @@ class VideoMode {
  }
  ```
 
+^ - Slipper unna interface filer slik som i c og obj-c. Automatisk tilgjengelig i andre filer
+^ - Automatic Reference Counting - frigjør objekter fra minne når ingen peker lengere på de (sterk reference). Kan ha weak reference 
+som gjør at objekt blir frigjort når siste sterke ref. fjernes
+^- Kopierer ved assignment på structs. Faktisk minne referanse ved objekter. Passed by value, passed by reference
+^ - Slipper unna interface filer slik som i c og obj-c. Automatisk tilgjengelig i andre filer
  ---
+
+## Klasse arv
+
+```swift
+class NewMessageViewController: UIViewController {
+    // subclass definition goes here
+}
+
+^
+- Her arver vi fra UIViewController som er basis for alle viewControllers
+- ViewControllers er bindeleddet mellom grafisk grensesnitt og kode
+- F.eks - bruker klikker på en knapp - da gis ViewController beskjed at brukeren klikket på knappen og vi utviklere håndterer hva som skal skje
+
+```
+---
 
 ## iOS
 
 - OS for iPad, iPhone, and iPod
+- Rammeverk ligger i Cocoa Touch
+- Push, Message, UIkit, Adresss Book
+![inline](layersofios.png)
+
+^ 
+- Kjøres på ipad, iphone og iPod
 - Cocoa Touch
-- Masse rammeverk: Push, Message, UIkit, Adresss Book
+- Bygd rundt rammeverk som du drar inn for å få ulike tjenster. Push, Message, UIkit, Adresss book, Event kit
+- Bruker for popup om han ønsker å gi tilgang til gitt tjeneste
+
+---
+
+	
