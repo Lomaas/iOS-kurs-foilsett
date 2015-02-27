@@ -167,7 +167,8 @@ class VideoMode {
 som gjør at objekt blir frigjort når siste sterke ref. fjernes
 ^- Kopierer ved assignment på structs. Faktisk minne referanse ved objekter. Passed by value, passed by reference
 ^ - Slipper unna interface filer slik som i c og obj-c. Automatisk tilgjengelig i andre filer
- ---
+
+---
 
 ## Klasse arv
 
@@ -175,13 +176,13 @@ som gjør at objekt blir frigjort når siste sterke ref. fjernes
 class NewMessageViewController: UIViewController {
     // subclass definition goes here
 }
+```
 
 ^
 - Her arver vi fra UIViewController som er basis for alle viewControllers
-- ViewControllers er bindeleddet mellom grafisk grensesnitt og kode
-- F.eks - bruker klikker på en knapp - da gis ViewController beskjed at brukeren klikket på knappen og vi utviklere håndterer hva som skal skje
+^ - ViewControllers er bindeleddet mellom grafisk grensesnitt og kode
+^ - F.eks - bruker klikker på en knapp - da gis ViewController beskjed at brukeren klikket på knappen og vi utviklere håndterer hva som skal skje
 
-```
 ---
 
 ## iOS
@@ -201,15 +202,17 @@ class NewMessageViewController: UIViewController {
 
 # iOS - design patterns
 
-- MVC, delegates
-- Separations of concerns
-- TODO: LEGG TIL BILDE HER
+
+![inline](mvc.png)
+
 
 ^ 
+- MVC, delegates
+- Separations of concerns
 - Separerer data og business logic fra den brukergrensesnittet (visuelle presentasjonen av data)
 - Twitter lagrer f. eks meldingene som data objekter
 - ViewController kontrollerer et view og hva som skal vises der. Bindeleddet mellom grensesnitt og data
-- 
+
 
 ^https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/TheAppLifeCycle/TheAppLifeCycle.html#//apple_ref/doc/uid/TP40007072-CH2-SW1
 
@@ -219,7 +222,7 @@ class NewMessageViewController: UIViewController {
 
 - Oppstart håndteres automatisk
 - Utvikler blir gitt kontroll når brukergrensesnitt skal initialiseres.
-- Execution state: Not running, inactive, active, background, suspended
+- Execution state: Not running, inactive, active, background, suspended.
 - UIApplication, UIWindow
 - 
 
@@ -230,6 +233,13 @@ class NewMessageViewController: UIViewController {
 - Background: App kjører kode i bakgrunn. Spotify, 
 - Suspended: App ligger i minne men kjører ikke kode. Kan bli slettet fra minne hvis mer minne trengs
 
+---
+
+# Threads and Concurrency
+
+- Main thread (MT)
+- GUI operasjoner må gjøres på MT
+- Lange utregninger bør gjøres i egen tråd (nettverk, fil aksess)
 ---
 
 # Storyboards
