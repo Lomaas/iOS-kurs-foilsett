@@ -195,8 +195,43 @@ class NewMessageViewController: UIViewController {
 - Kjøres på ipad, iphone og iPod
 - Cocoa Touch
 - Bygd rundt rammeverk som du drar inn for å få ulike tjenster. Push, Message, UIkit, Adresss book, Event kit
-- Bruker for popup om han ønsker å gi tilgang til gitt tjeneste
+- Bruker får popup om han ønsker å gi tilgang til gitt tjeneste
 
 ---
 
-	
+# iOS - design patterns
+
+- MVC, delegates
+- Separations of concerns
+- TODO: LEGG TIL BILDE HER
+
+^ 
+- Separerer data og business logic fra den brukergrensesnittet (visuelle presentasjonen av data)
+- Twitter lagrer f. eks meldingene som data objekter
+- ViewController kontrollerer et view og hva som skal vises der. Bindeleddet mellom grensesnitt og data
+- 
+
+^https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/TheAppLifeCycle/TheAppLifeCycle.html#//apple_ref/doc/uid/TP40007072-CH2-SW1
+
+---
+
+# App cycle
+
+- Oppstart håndteres automatisk
+- Utvikler blir gitt kontroll når brukergrensesnitt skal initialiseres.
+- Execution state: Not running, inactive, active, background, suspended
+- UIApplication, UIWindow
+- 
+
+^
+- Not running: App kjører ikke. Terminert.
+- Inaktiv: Mellmosteg fra å være aktiv til å bli suspended/background
+- Active: App kjører og vises på skjermen. 
+- Background: App kjører kode i bakgrunn. Spotify, 
+- Suspended: App ligger i minne men kjører ikke kode. Kan bli slettet fra minne hvis mer minne trengs
+
+---
+
+# Storyboards
+
+- Hvor brukergrensesnittet lages
