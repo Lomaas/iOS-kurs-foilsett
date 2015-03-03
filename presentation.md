@@ -252,6 +252,17 @@ class NewMessageViewController: UIViewController {
 
 # Apple Watch
 
+- Interface navigation: Page-based, Hierarkisk
+- Images, Text tables, text, labels, 
+- Context menus
+- Custom views!
+
+
+---
+
+
+# Apple Watch
+
 - WatchKit App & WacthKit Extension
 
 ![inline](applewatch.png)
@@ -259,12 +270,16 @@ class NewMessageViewController: UIViewController {
 ^
 - WatchKit er på klokka og har storyboard og resources files.
 - WatchKit Extension er på mobilen og har kode og resources.
+- WatchKit extensions kjører kun når Apple Watch appen kjøres
 - Transfer av informasjon skjer transparent.
 - Dele data med app group. Lar to prosesser akssesere samme data.
 - NSUserDefaults for å dele preferanser - kan være stort sett alt mulig rart strings, int, etc.
 - openParentApplication - direkte kommunikasjon med iOS app.
 - application:handleWatchKitExtensionRequest:reply:
 - https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/WatchKitProgrammingGuide/DesigningaWatchKitApp.html#//apple_ref/doc/uid/TP40014969-CH3-SW1
+
+
+---
 
 
 
