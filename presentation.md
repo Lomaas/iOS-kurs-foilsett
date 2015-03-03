@@ -223,13 +223,12 @@ class NewMessageViewController: UIViewController {
 - Oppstart håndteres automatisk
 - Utvikler blir gitt kontroll når brukergrensesnitt skal initialiseres.
 - Execution state: Not running, inactive, active, background, suspended.
-- UIApplication, UIWindow
-- 
+- UIApplication, UIWindow.
 
 ^
 - Not running: App kjører ikke. Terminert.
-- Inaktiv: Mellmosteg fra å være aktiv til å bli suspended/background
-- Active: App kjører og vises på skjermen. 
+- Inaktiv: Mellomsteg fra å være aktiv til å bli suspended/background
+- Active: App kjører og vises på skjermen. s
 - Background: App kjører kode i bakgrunn. Spotify, 
 - Suspended: App ligger i minne men kjører ikke kode. Kan bli slettet fra minne hvis mer minne trengs
 
@@ -237,11 +236,38 @@ class NewMessageViewController: UIViewController {
 
 # Threads and Concurrency
 
-- Main thread (MT)
-- GUI operasjoner må gjøres på MT
-- Lange utregninger bør gjøres i egen tråd (nettverk, fil aksess)
+- GUI operasjoner må gjøres på Main thread (MT)
+- Lange utregninger bør gjøres i egen tråd (nettverk, fil-aksess)
+
 ---
 
 # Storyboards
 
+
+^
 - Hvor brukergrensesnittet lages
+- Dra opp xCode for å vise storyboarde
+
+---
+
+# Apple Watch
+
+- WatchKit App & WacthKit Extension
+
+![inline](applewatch.png)
+
+^
+- WatchKit er på klokka og har storyboard og resources files.
+- WatchKit Extension er på mobilen og har kode og resources.
+- Transfer av informasjon skjer transparent.
+- Dele data med app group. Lar to prosesser akssesere samme data.
+- NSUserDefaults for å dele preferanser - kan være stort sett alt mulig rart strings, int, etc.
+- openParentApplication - direkte kommunikasjon med iOS app.
+- application:handleWatchKitExtensionRequest:reply:
+- https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/WatchKitProgrammingGuide/DesigningaWatchKitApp.html#//apple_ref/doc/uid/TP40014969-CH3-SW1
+
+
+
+
+
+
