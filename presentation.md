@@ -140,7 +140,8 @@ var reversed = sorted(names, backwards)
 // reversed is equal to ["Ewa", "Daniella", "Chris", "Barry", "Alex"]
 ```
 
-^- Funksjonelle paradigme i vinden
+^
+- Funksjonelle paradigme i vinden
 - Små korte funksjoner som gjør en ting og kan kombineres hvor resultatet av den ene 
 bygger på den andre
 - Tidligere het det blocks, ser litt ut som javascript
@@ -162,11 +163,11 @@ class VideoMode {
  }
  ```
 
-^ - Slipper unna interface filer slik som i c og obj-c. Automatisk tilgjengelig i andre filer
-^ - Automatic Reference Counting - frigjør objekter fra minne når ingen peker lengere på de (sterk reference). Kan ha weak reference 
+^
+- Slipper unna interface filer slik som i c og obj-c. Automatisk tilgjengelig i andre filer
+- Automatic Reference Counting - frigjør objekter fra minne når ingen peker lengere på de (sterk reference). Kan ha weak reference 
 som gjør at objekt blir frigjort når siste sterke ref. fjernes
-^- Kopierer ved assignment på structs. Faktisk minne referanse ved objekter. Passed by value, passed by reference
-^ - Slipper unna interface filer slik som i c og obj-c. Automatisk tilgjengelig i andre filer
+- Kopierer ved assignment på structs. Faktisk minne referanse ved objekter. Passed by value, passed by reference
 
 ---
 
@@ -180,8 +181,31 @@ class NewMessageViewController: UIViewController {
 
 ^
 - Her arver vi fra UIViewController som er basis for alle viewControllers
-^ - ViewControllers er bindeleddet mellom grafisk grensesnitt og kode
-^ - F.eks - bruker klikker på en knapp - da gis ViewController beskjed at brukeren klikket på knappen og vi utviklere håndterer hva som skal skje
+- ViewControllers er bindeleddet mellom grafisk grensesnitt og kode
+- F.eks - bruker klikker på en knapp - da gis ViewController beskjed at brukeren klikket på knappen og vi utviklere håndterer hva som skal skje
+
+---
+
+# Computes Properties
+
+```swift
+struct Rect {
+    var origin = Point()
+    var size = Size()
+    var center: Point {
+        get {
+            let centerX = origin.x + (size.width / 2)
+            let centerY = origin.y + (size.height / 2)
+            return Point(x: centerX, y: centerY)
+        }
+        set(newCenter) {
+            origin.x = newCenter.x - (size.width / 2)
+            origin.y = newCenter.y - (size.height / 2)
+        }
+    }
+}
+
+```
 
 ---
 
