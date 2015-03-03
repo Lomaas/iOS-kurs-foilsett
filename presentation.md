@@ -1,4 +1,4 @@
-# Swift-kurs
+# iOS-kurs
 
 ---
 
