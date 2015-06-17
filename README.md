@@ -4,16 +4,16 @@
 Spec:
 
 1. Liste opp todos
-2. Søk på todos
+2. Lag ny
 3. Swipe to delete
 4. Click to edit
-5. Lag ny 
+5. Søk på todos
 6. Tag todo med lokasjon
 7. Få notifikasjon når du er nært en todo
 
 ---
 
-# Storyboard
+# 1: Storyboard
 
 - Start i Main.storyboard
 ![alt tag](https://github.com/Lomaas/iOS-kurs-foilsett/blob/gh-pages/storyboard.png?raw=true)
@@ -28,18 +28,22 @@ Spec:
 - Velg at du skal ha 1 prototype celle ved å velge tableView i storyboard, 
 ![alt tag](https://github.com/Lomaas/iOS-kurs-foilsett/blob/gh-pages/protoypecell.png?raw=true)
 
-- Sett identifer og klasse for protoype cell. Du må opprette en ny klasse (cmd + n). Velg Swift-fil. Den nye klassen må extende UITableViewCell. Husk å importere UIKit
+- Sett identifer og klasse for protoype cell.
 
 ![alt tag](https://github.com/Lomaas/iOS-kurs-foilsett/blob/gh-pages/customcell.png?raw=true)
 
+- Du må opprette en ny klasse som blir din TableViewCell (cmd + n). Velg Swift-fil. Den nye klassen må extende UITableViewCell. Husk å importere UIKit
+
 ![alt tag](https://github.com/Lomaas/iOS-kurs-foilsett/blob/gh-pages/customclass.png?raw=true)
+
+- Eksempel på hvordan en TodoViewCell kan se ut som:
 
 ![alt tag](https://github.com/Lomaas/iOS-kurs-foilsett/blob/gh-pages/exampleViewCell.png?raw=true)
 
 # ViewController og  tableView
 
-- Sett delegate til tableView til å være self
-- Lag et array med fake data til å starte med for å teste presentasjon
+- Lag et array med fake data til å starte med for å teste presentasjonen av dataen
+- Sett delegate til tableView til å være self og implementer tableView delegate metodene
 
 ```swift
 tableView.delegate = self
@@ -74,14 +78,89 @@ let todo = tableData[indexPath.row]
 
 ```
 
-# Opprett Todo
+# 2: Opprett Todo
 
 - Legg til BarButton knapp oppe i høyre hjørne på navigation baren
 - ctrl-click og dra over i ny ViewController. Velg "push" som animasjonstype
-- Lag user interface i Storyboard for opprettelse av todo etter ønske. F. eks et textfield og en save knapp
-- Ved opprettelse av todo, gi beskjed at ny data er kommet til TableViewController
+
+![alt tag](https://github.com/Lomaas/iOS-kurs-foilsett/blob/gh-pages/dragtonewview.png?raw=true)
+
+- Lag user interface i Storyboard for opprettelse av todo etter ønske. F. eks et textfield, date picker og en save knapp
+- Ved opprettelse av todo, gi beskjed at ny data er kommet til TableViewController ved bruk av delegate pattern
+
+```swift
+
+protocol NewTodoViewControllerDelegate {
+	func didCreateTodo(todo: Todo)
+}
+
+// TableViewController -> sett delegate i prepareForSegue
+// Implementer didCreateTodo
+
+```
 
 - Gi beskjed til navigationController at den skal poppe et view fra stacken:
 ```swift
 navigationController?.popViewController
+```
+
+- Tips for UITextField. Implementer delegates for fjerne keyboard popup
+
+```swift
+extension TodoViewController: UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+
+    }
+    
+    func textFieldShouldEndEditing(textField: UITextField) -> Bool {
+
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+
+    }
+}
+
+```
+
+# 3: Swipe to delete todo
+
+```swift
+func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+	if (editingStyle == UITableViewCellEditingStyle.Delete) {
+		// Do action
+	}
+
+```
+
+# 4: Click to edit
+
+- Gjenbruk din implementasjon av create new todo til å støtte edit av todo også.
+
+# 5: Søk på todos
+
+- Via SearchBar eller helt egen. Be creative
+
+# 6: Utvid opprett/edit todo til å støtte lokasjon
+
+- Dra in Map Kit View
+- Implementer MKMapViewDelegate
+- Bruk MKAnnotationView for å sette lokasjon på kartet
+- Hent ut lokasjon for å automatisk zoome inn på rett region
+
+- Tips på veien:
+```swift
+let center = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+mapView.setRegion(region, animated: true)
+```
+
+- Legg til mkpointannotation
+```swift
+let point = MKPointAnnotation()
+
+// Sett coordinate og title
+
+mapView.addAnnotation(point)
 ```
