@@ -144,6 +144,18 @@ func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSInde
 
 }
 ```
+- For å sende med data til neste viewController
+
+```swift
+override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "goToTodoViewController" {
+        let vc = segue.destinationViewController as! TodoViewController
+
+        // configurer vc med data, sett delegates etc.
+
+    }
+}
+```
 
 # 5: Utvid opprett/edit todo til å støtte lokasjon
 
