@@ -31,7 +31,7 @@ Spec:
 - Sett identifer og klasse for protoype cell. 
 ![alt tag](https://github.com/Lomaas/iOS-kurs-foilsett/blob/master/presentasjonoppgaver/customcell.png?raw=true)
 
-![alt tag](https://github.com/Lomaas/iOS-kurs-foilsett/blob/master/presentasjonoppgaver/customclass.png?raw=true)
+![alt tag](raw.githubusercontent.com/Lomaas/iOS-kurs-foilsett/gh-pages/customclass.png)
 
 # ViewController og  tableView
 
