@@ -16,22 +16,22 @@ Spec:
 # Storyboard
 
 - Start i Main.storyboard
-![alt tag](https://github.com/Lomaas/boilerplate/blob/master/presentasjonoppgaver/storyboard.png?raw=true)
+![alt tag](https://github.com/Lomaas/iOS-kurs-foilsett/blob/master/presentasjonoppgaver/storyboard.png?raw=true)
 - Dra ut Table View
 - Sett på constraints (hug top, bunn, og sidene)
 - Dra inn referanse til tableView
-![alt tag](https://github.com/Lomaas/boilerplate/blob/master/presentasjonoppgaver/ctrldrag.png?raw=true)
+![alt tag](https://github.com/Lomaas/iOS-kurs-foilsett/blob/master/presentasjonoppgaver/ctrldrag.png?raw=true)
 
 
 # Custom table view cell
 
 - Velg at du skal ha 1 prototype celle ved å velge tableView i storyboard, 
-![alt tag](https://github.com/Lomaas/boilerplate/blob/master/presentasjonoppgaver/protoypecell.png?raw=true)
+![alt tag](https://github.com/Lomaas/iOS-kurs-foilsett/blob/master/presentasjonoppgaver/protoypecell.png?raw=true)
 
 - Sett identifer og klasse for protoype cell. 
-![alt tag](https://github.com/Lomaas/boilerplate/blob/master/presentasjonoppgaver/customcell.png?raw=true)
+![alt tag](https://github.com/Lomaas/iOS-kurs-foilsett/blob/master/presentasjonoppgaver/customcell.png?raw=true)
 
-![alt tag](https://github.com/Lomaas/boilerplate/blob/master/presentasjonoppgaver/customclass.png?raw=true)
+![alt tag](https://github.com/Lomaas/iOS-kurs-foilsett/blob/master/presentasjonoppgaver/customclass.png?raw=true)
 
 # ViewController og  tableView
 
