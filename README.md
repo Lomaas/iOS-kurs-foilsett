@@ -78,6 +78,28 @@ let todo = tableData[indexPath.row]
 
 ```
 
+# 1.5 Vise detaljert View
+
+- Implementer i didSelectRowAtIndexPath i TableViewController for å håndtere klikk på en celle:
+
+```swift
+func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+
+}
+```
+- For å sende med data til neste viewController
+
+```swift
+override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "goToTodoViewController" {
+        let vc = segue.destinationViewController as! TodoViewController
+
+        // configurer vc med data, sett delegates etc.
+
+    }
+}
+```
+
 # 2: Opprett Todo
 
 - Legg til BarButton knapp oppe i høyre hjørne på navigation baren
