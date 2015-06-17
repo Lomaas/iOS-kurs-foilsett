@@ -78,32 +78,7 @@ let todo = tableData[indexPath.row]
 
 ```
 
-# 1.5 Vise detaljert View
-
-- 
-- Implementer i didSelectRowAtIndexPath i TableViewController for å håndtere klikk på en celle:
-
-```swift
-func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-	peformSeugueWithIdentifier()
-}
-```
-- For å sende med data til neste viewController. Overskriv prepareForSegue. Denne blir kalt i det transisjonen til neste view skal gjøres
-
-```swift
-override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if segue.identifier == "goToTodoViewController" {
-        let vc = segue.destinationViewController as! TodoViewController
-
-        // configurer vc med data
-
-    }
-}
-```
-
-- Tips: Lag et objekt på destinasjons -ViewControlleren slik at du kan sette det i metoden ovenfor
-
-
+---
 
 # 2: Opprett Todo
 
@@ -151,6 +126,8 @@ extension TodoViewController: UITextFieldDelegate {
 
 ```
 
+---
+
 # 3: Swipe to delete todo
 
 ```swift
@@ -168,21 +145,23 @@ func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableV
 
 ```swift
 func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-
+	peformSeugueWithIdentifier()
 }
 ```
-- For å sende med data til neste viewController
+- For å sende med data til neste viewController. Overskriv prepareForSegue. Denne blir kalt i det transisjonen til neste view skal gjøres
 
 ```swift
 override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "goToTodoViewController" {
         let vc = segue.destinationViewController as! TodoViewController
 
-        // configurer vc med data, sett delegates etc.
+        // configurer vc med data
 
     }
 }
 ```
+
+---
 
 # 5: Utvid opprett/edit todo til å støtte lokasjon
 
@@ -210,8 +189,7 @@ let point = MKPointAnnotation()
 
 mapView.addAnnotation(point)
 ```
-
-
+---
 
 # 6: Søk på todos
 
