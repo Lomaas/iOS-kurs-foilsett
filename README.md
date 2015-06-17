@@ -7,8 +7,8 @@ Spec:
 2. Lag ny
 3. Swipe to delete
 4. Click to edit
-5. Søk på todos
-6. Tag todo med lokasjon
+5. Tag todo med lokasjon
+6. Søk på todos
 7. Få notifikasjon når du er nært en todo
 
 ---
@@ -137,12 +137,19 @@ func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableV
 # 4: Click to edit
 
 - Gjenbruk din implementasjon av create new todo til å støtte edit av todo også.
+- Implementer i didSelectRowAtIndexPath i TableViewController for å håndtere klikk på en celle:
 
-# 5: Søk på todos
+```swift
+func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
-- Via SearchBar eller helt egen. Be creative
+}
+```
 
-# 6: Utvid opprett/edit todo til å støtte lokasjon
+# 5: Utvid opprett/edit todo til å støtte lokasjon
+
+- Gå til prosjekt settings, velg tab "General". Gå til Linked Frameworks and Libraries og legg til CoreLocation & MapKit frameworks
+
+![alt tag](https://github.com/Lomaas/iOS-kurs-foilsett/blob/gh-pages/addframeworks.png?raw=true)
 
 - Dra in Map Kit View
 - Implementer MKMapViewDelegate
@@ -164,3 +171,9 @@ let point = MKPointAnnotation()
 
 mapView.addAnnotation(point)
 ```
+
+
+
+# 6: Søk på todos
+
+- Via SearchBar eller helt egen. Be creative
