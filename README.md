@@ -25,6 +25,7 @@ Spec:
 
 # Custom table view cell
 
+- Vi skal ha en spesialsydd celle. 
 - Velg at du skal ha 1 prototype celle ved å velge tableView i storyboard, 
 ![alt tag](https://github.com/Lomaas/iOS-kurs-foilsett/blob/gh-pages/protoypecell.png?raw=true)
 
@@ -39,6 +40,8 @@ Spec:
 - Eksempel på hvordan en TodoViewCell kan se ut som:
 
 ![alt tag](https://github.com/Lomaas/iOS-kurs-foilsett/blob/gh-pages/exampleViewCell.png?raw=true)
+
+- Husk at du må sette på constraints for view-elementer i cellen
 
 # ViewController og  tableView
 
@@ -77,6 +80,10 @@ let todo = tableData[indexPath.row]
 // sett data på celle og return cell
 
 ```
+
+- Vi har bare en section. En tabell med flere sections er f. eks innstillinger:
+
+![alt tag](https://github.com/Lomaas/iOS-kurs-foilsett/blob/gh-pages/tableviewwithsections.png?raw=true)
 
 ---
 
@@ -129,6 +136,13 @@ extension TodoViewController: UITextFieldDelegate {
 ---
 
 # 3: Swipe to delete todo
+
+```swift
+
+override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+	return true
+}
+```
 
 ```swift
 func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
