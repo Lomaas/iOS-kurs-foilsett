@@ -106,6 +106,13 @@ protocol NewTodoViewControllerDelegate {
 // TableViewController -> sett delegate i prepareForSegue
 // Implementer didCreateTodo
 
+- I din Opprett Todo legg i din
+```swift
+var delegate: TodoViewControllerProtocol?
+delegate?.didAddNewTodo()
+
+```
+
 ```
 
 - Gi beskjed til navigationController at den skal poppe et view fra stacken:
@@ -183,10 +190,19 @@ override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 
 ![alt tag](https://github.com/Lomaas/iOS-kurs-foilsett/blob/gh-pages/addframeworks.png?raw=true)
 
-- Dra in Map Kit View
-- Implementer MKMapViewDelegate
-- Bruk MKAnnotationView for å sette lokasjon på kartet
-- Hent ut lokasjon for å automatisk zoome inn på rett region
+- Dra in Map Kit View inn i din view controller i storyboard
+- Bruk MKAnnotationView for å sette lokasjon på kartet. Du må bruke CLLocationManager for å hente ut lokasjon:
+
+```swift
+locationManager = CLLocationManager()
+
+```
+
+- Implementer CLLocationManagerDelegate
+
+![alt tag](https://github.com/Lomaas/iOS-kurs-foilsett/blob/gh-pages/mapexample.png?raw=true)
+
+- Implementer MKMapViewDelegate metodene viewForAnnotation & didChangeDragState for å håndetere MKPointAnnotation tegning & dragging av view
 
 - Tips på veien:
 ```swift
