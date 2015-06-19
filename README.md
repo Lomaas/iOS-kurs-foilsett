@@ -190,6 +190,11 @@ override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 
 ![alt tag](https://github.com/Lomaas/iOS-kurs-foilsett/blob/gh-pages/addframeworks.png?raw=true)
 
+- Du må også sette en key i din .plist -fil
+
+![alt tag](https://github.com/Lomaas/iOS-kurs-foilsett/blob/gh-pages/plist.png?raw=true)
+
+
 - Dra in Map Kit View inn i din view controller i storyboard
 - Bruk MKAnnotationView for å sette lokasjon på kartet. Du må bruke CLLocationManager for å hente ut lokasjon:
 
