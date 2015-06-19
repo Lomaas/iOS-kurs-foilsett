@@ -221,6 +221,15 @@ mapView.addAnnotation(point)
 ```
 ---
 
+# 5.5: Error handling
+
+- Lag en validator av input. F. eks hvis tittel ikke er fylt inn
+- Kan bruke UIAlertViewController eller lage et et eget error view
+
+# 6: UILocalNotification
+
+- Gi brukeren beskjed når han er nært en Todo med UILocalNotification
+
 # 6: Søk på todos
 
 - Via SearchBar eller helt egen. Be creative
