@@ -186,11 +186,13 @@ override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 
 # 5: Utvid opprett/edit todo til å støtte lokasjon
 
+![alt tag](https://github.com/Lomaas/iOS-kurs-foilsett/blob/gh-pages/mapexample.png?raw=true)
+
 - Gå til prosjekt settings, velg tab "General". Gå til Linked Frameworks and Libraries og legg til CoreLocation & MapKit frameworks
 
 ![alt tag](https://github.com/Lomaas/iOS-kurs-foilsett/blob/gh-pages/addframeworks.png?raw=true)
 
-- Du må også sette en key i din .plist -fil
+- Du må også sette en key i din .plist -fil ved key "NSLocationWhenInUseUsageDescription" og en tekst som forklarer hvorfor appen trenger lokasjonen. Denne teksten vil være en del av popupen brukeren får i det du spør OSet om lokasjonen via lokasjons-frameworket
 
 ![alt tag](https://github.com/Lomaas/iOS-kurs-foilsett/blob/gh-pages/plist.png?raw=true)
 
@@ -204,25 +206,28 @@ locationManager = CLLocationManager()
 ```
 
 - Implementer CLLocationManagerDelegate
-
-![alt tag](https://github.com/Lomaas/iOS-kurs-foilsett/blob/gh-pages/mapexample.png?raw=true)
-
-- Implementer MKMapViewDelegate metodene viewForAnnotation & didChangeDragState for å håndetere MKPointAnnotation tegning & dragging av view
+	- Implementer MKMapViewDelegate metodene viewForAnnotation & didChangeDragState for å håndetere MKPointAnnotation tegning & dragging av view
 
 - Tips på veien:
 ```swift
 let center = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
 let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
 mapView.setRegion(region, animated: true)
+
+// Kartet blir zooma inn på en region
+// Legg til en Pin på kartet hvor brukeren er akkruat nå. Denne skal kunne dras rundt på kartet
+
+let point = MKPointAnnotation()
+// Sett coordinate og title
+...
+..
+
+mapView.addAnnotation(point)	// add annotation to mapview. MapView vil spørre hvordan denne annotation skal tegnes via delegate viewForAnnotation
 ```
 
 - Legg til mkpointannotation
 ```swift
-let point = MKPointAnnotation()
 
-// Sett coordinate og title
-
-mapView.addAnnotation(point)
 ```
 ---
 
@@ -235,6 +240,6 @@ mapView.addAnnotation(point)
 
 - Gi brukeren beskjed når han er nært en Todo med UILocalNotification
 
-# 6: Søk på todos
+# 7: Søk på todos
 
 - Via SearchBar eller helt egen. Be creative
